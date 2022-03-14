@@ -1,0 +1,38 @@
+﻿@model ShippingDetailsViewModel
+@{
+    Layout = "_Layout"; ;
+    ViewBag.Title = "title";
+}
+<form asp-controller="Cart" asp-action="Complete" method="post">
+    <div class="form-control">
+        <label asp-for="ShippingDetail.FirstName"></label>
+        <input asp-for="ShippingDetail.FirstName" />
+        <span asp-validation-for="ShippingDetail.FirstName"></span>
+    </div>
+    <div class="form-control">
+        <label asp-for="ShippingDetail.LastName"></label>
+        <input asp-for="ShippingDetail.LastName" />
+        <span asp-validation-for="ShippingDetail.LastName"></span>
+    </div>
+    <div class="form-control">
+        <label asp-for="ShippingDetail.Email"></label>
+        <input asp-for="ShippingDetail.Email" />
+        <span asp-validation-for="ShippingDetail.Email"></span>
+    </div>
+    <div class="form-control">
+        <label asp-for="ShippingDetail.Address"></label>
+        <input asp-for="ShippingDetail.Address" />
+        <span asp-validation-for="ShippingDetail.Address"></span>
+    </div>
+    <div class="form-control">
+        <label asp-for="ShippingDetail.City"></label>
+        <input asp-for="ShippingDetail.City" />
+        <span asp-validation-for="ShippingDetail.City"></span>
+    </div>
+    <div class="form-control">
+        <label asp-for="ShippingDetail.Age"></label>
+        <input asp-for="ShippingDetail.Age" />
+        <span asp-validation-for="ShippingDetail.Age"></span>
+    </div>
+    <input type="submit" value="Kaydet" class="btn btn-success btn-group-sm" />
+</form>
