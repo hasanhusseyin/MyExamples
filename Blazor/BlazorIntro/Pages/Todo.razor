@@ -1,0 +1,49 @@
+﻿@page "/todo"
+@using BlazorIntro.Models
+@using BlazorIntro.Services
+<h3>Todo</h3>
+@inject HttpClient Http
+@inject IApiService Api
+
+
+<h1>Todo List</h1>
+@if (todoItems == null)
+{
+    <h3>Loading...</h3>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>User Id</th>
+                <th>Title</th>
+                <th>Completed</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var todo in todoItems)
+            {
+                <tr>
+                    <td>@todo.Id</td>
+                    <td>@todo.UserId</td>
+                    <td>@todo.Title</td>
+                    <td>@todo.Completed</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+
+    TodoItem[] todoItems;
+
+    protected override async Task OnInitializedAsync()
+    {
+        todoItems = await Api.GetTodos();
+    }
+
+}

@@ -1,0 +1,14 @@
+﻿@page "/detail"
+@page "/detail/{id:int}"
+
+<h3>Detail for @Id</h3>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+    //protected override void OnInitialized()
+    //{
+    //    Id = Id ?? 0;
+    //}
+
+}

@@ -1,0 +1,41 @@
+﻿@page "/productadd"
+@using BlazorIntro.Models
+<h3>ProductAdd</h3>
+
+
+<EditForm Model="@productAddModel" OnValidSubmit="@HandleSave">
+
+    <DataAnnotationsValidator />
+    @*<ValidationSummary />*@
+
+    <div class="form-control">
+        <InputText PlaceHolder="Ürün Adı" Class="form-control" Id="productName" @bind-Value="productAddModel.ProductName" />
+        <ValidationMessage For="(()=>productAddModel.ProductName)" />
+    </div>
+
+    <div class="form-control">
+        <InputTextArea PlaceHolder="Ürün Açıklaması" Class="form-control" Id="description" @bind-Value="productAddModel.Description" />
+        <ValidationMessage For="(()=>productAddModel.Description)" />
+    </div>
+
+    <div class="form-control">
+        <InputSelect Id="categoryId" @bind-Value="productAddModel.CategoryId">
+            <option value="1">İçecek</option>
+            <option value="2">Yiyecek</option>
+        </InputSelect>
+        <ValidationMessage For="(()=>productAddModel.CategoryId)" />
+    </div>
+
+    <button class="btn btn-success" type="submit">Kaydet</button>
+</EditForm>
+
+
+
+@code {
+    ProductAddModel productAddModel = new ProductAddModel();
+
+    public void HandleSave()
+    {
+        Console.WriteLine("{0} Ürünü {1} Kategorisi İçin Eklendi... ", productAddModel.ProductName, productAddModel.CategoryId);
+    }
+}
